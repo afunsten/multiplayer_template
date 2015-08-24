@@ -13,6 +13,25 @@
             margin: 0px;
             overflow: hidden;
         }
+
+        #m, #s {
+            margin: 3;
+            padding: 7;
+            border: 0;
+            border-top: 1px solid #435160;
+            border-bottom: 1px solid #435160;
+            background: transparent;
+            color: #6D7781;
+            font-size: 16px;
+            position:absolute;
+            bottom:0px;
+          
+        }
+        #s{ left:71%; }
+        #m {
+          left:10px;
+          width: 70%;
+        }
     </style>
 </head>
 <body>
@@ -40,5 +59,11 @@
     });
 
 </script>
+
+<ul id="messages"></ul>
+    <form action="">
+      <input id="m" autocomplete="off" /><button id="s">Send</button>
+ </form>
+
 </body>
 </html>
