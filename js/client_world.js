@@ -21,7 +21,7 @@ var loadWorld = function(){
         scene = new THREE.Scene();
 
         camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 1000);
-        camera.position.z = 5;
+        camera.position.z = 3;
         //camera.lookAt( new THREE.Vector3(0,0,0));
 
         renderer = new THREE.WebGLRenderer( { alpha: true} );
@@ -31,7 +31,7 @@ var loadWorld = function(){
         //Add Objects To the Scene HERE-------------------
 
         //Sphere------------------
-        var sphere_geometry = new THREE.SphereGeometry(0.3);
+        var sphere_geometry = new THREE.SphereGeometry(0.1);
         var sphere_material = new THREE.MeshNormalMaterial();
         sphere = new THREE.Mesh( sphere_geometry, sphere_material );
 
@@ -60,11 +60,8 @@ var loadWorld = function(){
     function render(){
 
         if ( player ){
-
             updateCameraPosition();
-
             checkKeyStates();
-
             camera.lookAt( player.position );
         }
         //Render Scene---------------------------------------
@@ -148,7 +145,7 @@ var createPlayer = function(data){
     player.position.x = data.x;
     player.position.y = data.y;
     player.position.z = data.z;
-
+    player.rotateY(180);
     playerId = data.playerId;
     moveSpeed = data.speed;
     turnSpeed = data.turnSpeed;
@@ -239,14 +236,14 @@ var checkKeyStates = function(){
 };
 
 var addOtherPlayer = function(data){
-    var cube_geometry = new THREE.BoxGeometry(data.sizeX, data.sizeY, data.sizeZ);
-    var cube_material = new THREE.MeshBasicMaterial({color: 0x7777ff, wireframe: true});
-    var otherPlayer = new THREE.Mesh(cube_geometry, cube_material);
+    var player_geometry = new THREE.SphereGeometry(data.sizeX, data.sizeY, data.sizeZ);
+    var player_material = new THREE.MeshBasicMaterial({color: 0x777766, wireframe: true});
+    var otherPlayer = new THREE.Mesh(player_geometry, player_material);
 
     otherPlayer.position.x = data.x;
     otherPlayer.position.y = data.y;
     otherPlayer.position.z = data.z;
-
+   
     otherPlayersId.push( data.playerId );
     otherPlayers.push( otherPlayer );
     objects.push( otherPlayer );
@@ -270,3 +267,4 @@ var playerForId = function(id){
     }
     return otherPlayers[index];
 };
+

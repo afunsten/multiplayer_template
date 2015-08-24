@@ -3,17 +3,17 @@ var players = [];
 function Player(){
 
     this.playerId = players.length;
-    this.x = 1;
+    this.x = 2;
     this.y = 0;
     this.z = 1;
     this.r_x = 0;
     this.r_y = 0;
     this.r_z = 0;
-    this.sizeX = 1;
-    this.sizeY = 1;
-    this.sizeZ = 1;
-    this.speed = 0.1;
-    this.turnSpeed = 0.03;
+    this.sizeX = 0.7;
+    this.sizeY =  0.7;
+    this.sizeZ = 0.2;
+    this.speed = 0.7;
+    this.turnSpeed = 0.07;
 
 }
 
@@ -67,3 +67,4 @@ module.exports.addPlayer = addPlayer;
 module.exports.removePlayer = removePlayer;
 module.exports.updatePlayerData = updatePlayerData;
 module.exports.playerForId = playerForId;
+
