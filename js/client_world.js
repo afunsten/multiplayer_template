@@ -31,7 +31,7 @@ var loadWorld = function(){
         //Add Objects To the Scene HERE-------------------
 
         //Sphere------------------
-        var sphere_geometry = new THREE.SphereGeometry(1);
+        var sphere_geometry = new THREE.SphereGeometry(0.3);
         var sphere_material = new THREE.MeshNormalMaterial();
         sphere = new THREE.Mesh( sphere_geometry, sphere_material );
 
@@ -139,9 +139,9 @@ var createPlayer = function(data){
 
     playerData = data;
 
-    var cube_geometry = new THREE.BoxGeometry(data.sizeX, data.sizeY, data.sizeZ);
-    var cube_material = new THREE.MeshBasicMaterial({color: 0x7777ff, wireframe: false});
-    player = new THREE.Mesh(cube_geometry, cube_material);
+    var player_geometry = new THREE.CylendarGeometry(data.sizeX, data.sizeY, data.sizeZ, 3, 2);
+    var player_material = new THREE.MeshBasicMaterial({color: 0x7777ff, wireframe: true});
+    player = new THREE.Mesh(player_geometry, player_material);
 
     player.rotation.set(0,0,0);
 
@@ -240,7 +240,7 @@ var checkKeyStates = function(){
 
 var addOtherPlayer = function(data){
     var cube_geometry = new THREE.BoxGeometry(data.sizeX, data.sizeY, data.sizeZ);
-    var cube_material = new THREE.MeshBasicMaterial({color: 0x7777ff, wireframe: false});
+    var cube_material = new THREE.MeshBasicMaterial({color: 0x7777ff, wireframe: true});
     var otherPlayer = new THREE.Mesh(cube_geometry, cube_material);
 
     otherPlayer.position.x = data.x;
