@@ -139,7 +139,7 @@ var createPlayer = function(data){
 
     playerData = data;
 
-    var player_geometry = new THREE.CylendarGeometry(data.sizeX, data.sizeY, data.sizeZ, 3, 2);
+    var player_geometry = new THREE.CylinderGeometry(data.sizeX, data.sizeY, data.sizeZ, 3, 2);
     var player_material = new THREE.MeshBasicMaterial({color: 0x7777ff, wireframe: true});
     player = new THREE.Mesh(player_geometry, player_material);
 
